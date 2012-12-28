@@ -1115,6 +1115,14 @@ endfunction "}}}
 
 " }}}
 
+function s:parse_tag_keeper(line)
+  let line = substitute(a:line,'\\&lt;',
+        \'\&lt;', 'g')
+  let line = substitute(line,'\\&gt;',
+        \'\&gt;', 'g')
+  return line
+endfunction
+
 " WIKI2HTML "{{{
 function! s:parse_line(line, state) " {{{
   let state = {}
@@ -1132,6 +1140,7 @@ function! s:parse_line(line, state) " {{{
   let res_lines = []
 
   let line = s:safe_html(a:line)
+  let line = s:parse_tag_keeper(line)
 
   let processed = 0
 
