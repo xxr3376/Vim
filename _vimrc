@@ -143,6 +143,10 @@ nmap <leader>V :source $MYVIMRC<CR>
 nmap <leader>v :vsp<CR>
 nmap <leader>s :sp<CR>
 nmap <leader>w :w!<CR>
+" Increase Number
+noremap <C-I> <C-A>
+" Decrease Number
+nnoremap <C-O> <C-X>
 
 "´úÂëÕÛµşÀàĞÍ
 set foldmethod=syntax
