@@ -121,7 +121,8 @@ set foldlevel=100
 	nmap <C-k> <C-W>k
 	nmap <C-h> <C-W>h
 	nmap <C-l> <C-W>l
-
+	" 去除行尾^M
+	nmap <leader>M :%s/\r\(\n\)/\1/g<CR>
 	"重载入_VIMRC
 	nmap <leader>V :source $MYVIMRC<CR>
 
@@ -164,14 +165,12 @@ set undoreload=10000        " number of lines to save for undo
 
 nmap <silent> <F9> :make <CR>
 
-"自动开启 彩色括号匹配
-"au VimEnter * RainbowParenthesesToggle
-"au Syntax * RainbowParenthesesLoadRound
-"au Syntax * RainbowParenthesesLoadSquare
-"au Syntax * RainbowParenthesesLoadBraces
+" 自动开启 彩色括号匹配
+"let g:rainbow_active = 1
+"let g:rainbow_operators = 1
 
 "手动开启 彩色括号匹配
-nmap <silent> <F12> :RainbowParenthesesToggle <CR>:RainbowParenthesesLoadRound <CR>:RainbowParenthesesLoadSquare <CR>:RainbowParenthesesLoadBraces <CR>:RainbowParenthesesLoadChevrons <CR>
+nmap <silent> <F12> :RainbowToggle<CR>
 
 " 额外文件类型设置
 au BufRead,BufNewFile *.json set filetype=javascript
