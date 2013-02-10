@@ -135,6 +135,11 @@ set foldlevel=100
 	noremap <C-I> <C-A>
 	" Decrease Number
 	nnoremap <C-O> <C-X>
+	" replace this word
+	nmap dp Pldwbyw
+	" exchange lines
+	nmap <M-Down> ddp
+	nmap <M-Up> ddkP
 
 " }}
 " =============================
@@ -180,8 +185,9 @@ au BufRead,BufNewFile *.json set filetype=javascript
 let g:vimwiki_use_mouse = 1
 let g:vimwiki_list = [{'path': 'E:/vimwiki/',
 \ 'path_html': 'E:/vimwiki/html/',
-\ 'html_header': 'E:/vimwiki/template/header.tpl',
-\ 'html_footer': 'E:/vimwiki/template/footer.tpl'}]
+\ 'template_path': 'E:/vimwiki/template/',
+\ 'template_default': 'default_template',
+\ 'template_ext': '.tpl'}]
 " 关闭驼峰词
 let g:vimwiki_camel_case = 0
 " 在计算字串长度时用特别考虑中文字符
