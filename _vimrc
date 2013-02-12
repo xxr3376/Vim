@@ -79,6 +79,9 @@ set smartcase	" 当搜索内容包含大写时，忽略ignorecase
 set display=lastline " 防止一行超过窗口高度看不到
 set cursorline	"高亮当前行
 set cursorcolumn
+
+set cc=81 " 设置建议行尾
+
 hi cursorline guibg=#002244
 hi cursorcolumn guibg=#222230
 
@@ -141,6 +144,7 @@ set foldlevel=100
 	nmap <M-Down> ddp
 	nmap <M-Up> ddkP
 
+	nmap <silent> <F9> :make <CR>
 " }}
 " =============================
 " plugins
@@ -151,8 +155,6 @@ lang English_United States " set Language
 set laststatus=2
 let g:Powerline_symbols='fancy'
 
-" 设置建议行尾
-set cc=81
 " NERDTree
 " {
 " 设置w为NerdTree切换
@@ -168,12 +170,11 @@ set undodir=$VIM/vimfiles/undo " where to save undo histories
 set undolevels=1000         " How many undos
 set undoreload=10000        " number of lines to save for undo
 
-nmap <silent> <F9> :make <CR>
 
 " 自动开启 彩色括号匹配
 "let g:rainbow_active = 1
 "let g:rainbow_operators = 1
-
+"
 "手动开启 彩色括号匹配
 nmap <silent> <F12> :RainbowToggle<CR>
 
@@ -182,21 +183,33 @@ au BufRead,BufNewFile *.json set filetype=javascript
 
 "about vimwiki
 "{{
-let g:vimwiki_use_mouse = 1
-let g:vimwiki_list = [{'path': 'E:/vimwiki/',
-\ 'path_html': 'E:/vimwiki/html/',
-\ 'template_path': 'E:/vimwiki/template/',
-\ 'template_default': 'default_template',
-\ 'template_ext': '.tpl'}]
-" 关闭驼峰词
-let g:vimwiki_camel_case = 0
-" 在计算字串长度时用特别考虑中文字符
-let g:vimwiki_CJK_length = 1
-" 标记为完成的 checklist 项目会有特别的颜色
-let g:vimwiki_hl_cb_checked = 1
-" 我的 vim 是没有菜单的，加一个 vimwiki 菜单项也没有意义
-let g:vimwiki_menu = ''
-nmap <silent> <F4> :VimwikiAll2HTML<CR>
+	let g:vimwiki_use_mouse = 1
+	let g:vimwiki_list = [{'path': 'E:/vimwiki/',
+	\ 'path_html': 'E:/vimwiki/html/',
+	\ 'template_path': 'E:/vimwiki/template/',
+	\ 'template_default': 'default_template',
+	\ 'template_ext': '.tpl'}]
+	" 关闭驼峰词
+	let g:vimwiki_camel_case = 0
+	" 在计算字串长度时用特别考虑中文字符
+	let g:vimwiki_CJK_length = 1
+	" 标记为完成的 checklist 项目会有特别的颜色
+	let g:vimwiki_hl_cb_checked = 1
+	" 我的 vim 是没有菜单的，加一个 vimwiki 菜单项也没有意义
+	let g:vimwiki_menu = ''
+	nmap <silent> <F4> :VimwikiAll2HTML<CR>
+	" 支持todo list的切换
+	nmap \ <C-Space>
+	"支持语法高亮
+	let wiki_nested_syntaxes = {'python': 'python', 'c++': 'cpp'} 
+	"设置标题颜色
+	hi VimwikiHeader1 guifg=#F92672 guibg=#000000
+	hi VimwikiHeader2 guifg=#E6DB74
+	hi VimwikiHeader3 guifg=#AE81FF
+	hi VimwikiHeader4 guifg=#A6E22E               
+	hi VimwikiHeader5 guifg=#FD971F 
+	hi VimwikiHeader6 guifg=#FFFF00
+
 "}}
 
 
