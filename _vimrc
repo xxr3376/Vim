@@ -77,7 +77,7 @@ set incsearch		" do incremental searching
 set smartcase	" 当搜索内容包含大写时，忽略ignorecase
 
 set display=lastline " 防止一行超过窗口高度看不到
-set cursorline	"高亮当前行
+"set cursorline	"高亮当前行
 set cursorcolumn
 
 set cc=81 " 设置建议行尾
