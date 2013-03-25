@@ -15,6 +15,8 @@ if has("autocmd")
   au!
   " For all text files set 'textwidth' to 78 characters.
   autocmd FileType text setlocal textwidth=78
+
+  autocmd FileType html imap <C-space> <C-y>,
   " When editing a file, always jump to the last known cursor position.
   " Don't do it when the position is invalid or when inside an event handler
   " (happens when dropping a file on gvim).
@@ -56,8 +58,9 @@ set autochdir
 set wildmenu	" 命令行增强模式
 set scrolloff=4	" 上下最小保留行数
 
-set guifont=Inconsolata:h10.5
-set gfw=幼圆:h10.5:cGB2312
+set guifont=Inconsolata-dz\ for\ Powerline:h9
+"set guifont=Inconsolata:h10.5
+"set gfw=幼圆:h10.5:cGB2312
 set guifontwide=Microsoft_YaHei_Mono
 
 "  about tab setting
@@ -211,5 +214,6 @@ au BufRead,BufNewFile *.json set filetype=javascript
 	hi VimwikiHeader6 guifg=#FFFF00
 
 "}}
-
-
+"{{ zencoding
+	let g:user_zen_leader_key = '<M-s>'
+"}}
