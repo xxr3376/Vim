@@ -183,6 +183,8 @@ nmap <silent> <F12> :RainbowToggle<CR>
 
 " 额外文件类型设置
 au BufRead,BufNewFile *.json set filetype=javascript
+au BufRead,BufNewFile *.iced set filetype=coffee
+au BufRead,BufNewFile *.js set autoread
 
 "about vimwiki
 "{{
@@ -215,5 +217,6 @@ au BufRead,BufNewFile *.json set filetype=javascript
 
 "}}
 "{{ zencoding
-	let g:user_zen_leader_key = '<M-s>'
+"	let g:user_zen_leader_key = '<M-s>'
 "}}
+let g:ConqueTerm_PyExe = 'D:\DevTool\Python27\python.exe'
