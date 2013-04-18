@@ -58,10 +58,15 @@ set autochdir
 set wildmenu	" 命令行增强模式
 set scrolloff=4	" 上下最小保留行数
 
-set guifont=Inconsolata-dz\ for\ Powerline:h9
-"set guifont=Inconsolata:h10.5
-"set gfw=幼圆:h10.5:cGB2312
-set guifontwide=Microsoft_YaHei_Mono
+function! s:setFontSize(size)
+	"set guifont="Inconsolata-dz\ for\ Powerline:h".a:size
+	execute printf('set gfn=Inconsolata-dz\ for\ Powerline:h%f', a:size + 0.5)
+	"set guifont=Inconsolata-dz\ for\ Powerline:h9
+	execute printf('set guifontwide=Microsoft_YaHei_Mono:h%f', a:size + 0.5)
+	"set guifontwide=Microsoft_YaHei_Mono:h9
+endfunction
+call s:setFontSize(9)
+command! -nargs=1 FontSize call s:setFontSize(<f-args>)
 
 "  about tab setting
 set tabstop=4
@@ -143,9 +148,6 @@ set foldlevel=100
 	nnoremap <C-O> <C-X>
 	" replace this word
 	nmap dp Pldwbyw
-	" exchange lines
-	nmap <M-Down> ddp
-	nmap <M-Up> ddkP
 
 	nmap <silent> <F9> :make <CR>
 " }}
@@ -202,7 +204,8 @@ au BufRead,BufNewFile *.js set autoread
 	let g:vimwiki_hl_cb_checked = 1
 	" 我的 vim 是没有菜单的，加一个 vimwiki 菜单项也没有意义
 	let g:vimwiki_menu = ''
-	nmap <silent> <F4> :VimwikiAll2HTML<CR>
+	au BufRead,BufNewFile *.wiki nmap <F4> :VimwikiAll2HTML<CR>
+	au BufRead,BufNewFile *.wiki nmap <F3> :Vimwiki2HTML<CR>
 	" 支持todo list的切换
 	nmap \ <C-Space>
 	"支持语法高亮
@@ -220,3 +223,122 @@ au BufRead,BufNewFile *.js set autoread
 "	let g:user_zen_leader_key = '<M-s>'
 "}}
 let g:ConqueTerm_PyExe = 'D:\DevTool\Python27\python.exe'
+
+"Reteach arrow key
+"{{
+function! AddEmptyLineBelow()
+  call append(line("."), "")
+endfunction
+
+function! AddEmptyLineAbove()
+  let l:scrolloffsave = &scrolloff
+  " Avoid jerky scrolling with ^E at top of window
+  set scrolloff=0
+  call append(line(".") - 1, "")
+  if winline() != winheight(0)
+    silent normal! <C-e>
+  end
+  let &scrolloff = l:scrolloffsave
+endfunction
+
+function! DelEmptyLineBelow()
+  if line(".") == line("$")
+    return
+  end
+  let l:line = getline(line(".") + 1)
+  if l:line =~ '^\s*$'
+    let l:colsave = col(".")
+    .+1d
+    ''
+    call cursor(line("."), l:colsave)
+  end
+endfunction
+
+function! DelEmptyLineAbove()
+  if line(".") == 1
+    return
+  end
+  let l:line = getline(line(".") - 1)
+  if l:line =~ '^\s*$'
+    let l:colsave = col(".")
+    .-1d
+    silent normal! <C-y>
+    call cursor(line("."), l:colsave)
+  end
+endfunction
+
+function! AddEmptyLineBelow()
+    call append(line("."), "")
+endfunction
+
+function! s:swap_lines(n1, n2)
+    let line1 = getline(a:n1)
+    let line2 = getline(a:n2)
+    call setline(a:n1, line2)
+    call setline(a:n2, line1)
+endfunction
+
+function! s:swap_up()
+    let n = line('.')
+    if n == 1
+        return
+    endif
+
+    call s:swap_lines(n, n - 1)
+    exec n - 1
+endfunction
+
+function! s:swap_down()
+    let n = line('.')
+    if n == line('$')
+        return
+    endif
+
+    call s:swap_lines(n, n + 1)
+    exec n + 1
+endfunction
+
+
+" Arrow key remapping: Up/Dn = move line up/dn; Left/Right = indent/unindent
+function! SetArrowKeysAsTextShifters()
+    " normal mode
+	nmap <silent> <left> <<
+	nmap <silent> <right> >>
+    nnoremap <silent> <up> <esc>:call DelEmptyLineAbove()<cr>
+    nnoremap <silent> <down> <esc>:call AddEmptyLineAbove()<cr>
+	nnoremap <silent> <c-up> <esc>:call DelEmptyLineBelow()<cr>
+    nnoremap <silent> <c-down> <esc>:call AddEmptyLineBelow()<cr>
+
+    " visual mode
+    vmap <silent> <left> <
+    vmap <silent> <right> >
+	vnoremap <silent> <up> <esc>:call DelEmptyLineAbove()<cr>gv
+    vnoremap <silent> <down> <esc>:call AddEmptyLineAbove()<cr>gv
+    vnoremap <silent> <c-up> <esc>:call DelEmptyLineBelow()<cr>gv
+    vnoremap <silent> <c-down> <esc>:call AddEmptyLineBelow()<cr>gv
+
+    " insert mode
+	imap <silent> <left> <c-d>
+    imap <silent> <right> <c-t>
+    inoremap <silent> <up> <esc>:call DelEmptyLineAbove()<cr>a
+    inoremap <silent> <down> <esc>:call AddEmptyLineAbove()<cr>a
+    inoremap <silent> <c-up> <esc>:call DelEmptyLineBelow()<cr>a
+    inoremap <silent> <c-down> <esc>:call AddEmptyLineBelow()<cr>a
+
+	" exchange lines
+    nnoremap  <s-up> :call <SID>swap_up()<CR>
+	nnoremap  <s-down> :call <SID>swap_down()<CR>
+    inoremap  <s-up> <esc>:call <SID>swap_up()<CR>a
+    inoremap  <s-down> <esc>:call <SID>swap_down()<CR>a
+    " disable modified versions we are not using
+    nnoremap  <s-left> <nop>
+    nnoremap  <s-right> <nop>
+    vnoremap  <s-up> <nop>
+	vnoremap  <s-down> <nop>
+    vnoremap  <s-left> <nop>
+    vnoremap  <s-right> <nop>
+    inoremap  <s-left> <nop>
+    inoremap  <s-right> <nop>
+endfunction
+
+call SetArrowKeysAsTextShifters()
