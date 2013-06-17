@@ -187,6 +187,7 @@ nmap <silent> <F12> :RainbowToggle<CR>
 au BufRead,BufNewFile *.json set filetype=javascript
 au BufRead,BufNewFile *.iced set filetype=coffee
 au BufRead,BufNewFile *.js set autoread
+au FileType python set shiftround expandtab softtabstop=4 tabstop=4 shiftwidth=4 
 
 "about vimwiki
 "{{
@@ -342,3 +343,7 @@ function! SetArrowKeysAsTextShifters()
 endfunction
 
 call SetArrowKeysAsTextShifters()
+
+nmap <silent> <Tab> %
+vmap <silent> <Tab> %
+
