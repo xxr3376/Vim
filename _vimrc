@@ -57,6 +57,7 @@ set tags=tags;
 set autochdir
 set wildmenu	" 命令行增强模式
 set scrolloff=4	" 上下最小保留行数
+set foldmethod=manual
 
 function! s:setFontSize(size)
 	"set guifont="Inconsolata-dz\ for\ Powerline:h".a:size
@@ -86,12 +87,11 @@ set smartcase	" 当搜索内容包含大写时，忽略ignorecase
 
 set display=lastline " 防止一行超过窗口高度看不到
 "set cursorline	"高亮当前行
-set cursorcolumn
-
+"set cursorcolumn
 set cc=81 " 设置建议行尾
 
-hi cursorline guibg=#002244
-hi cursorcolumn guibg=#222230
+" hi cursorline guibg=#002244
+" hi cursorcolumn guibg=#222230
 
 "禁用mode lines (安全措施） 
 set nomodeline 
@@ -102,11 +102,6 @@ set noswapfile
 set nobackup		" do not keep a backup file, use versions instead
 "设置剪贴板公用
 set clipboard=unnamed
-"代码折叠类型
-set foldmethod=syntax
-"启动时不折叠代码
-set foldlevel=100
-
 " {{	映射区
 	"Set mapleader
 	let mapleader = ","
@@ -166,10 +161,6 @@ let g:Powerline_symbols='fancy'
 nmap <silent> <F10> :NERDTreeToggle <CR>
 
 " }
-"设置Taglist位置
-let Tlist_File_Fold_Auto_Close=1
-let Tlist_Use_Right_Window=1
-
 set undofile                " Save undo's after file closes
 set undodir=$VIM/vimfiles/undo " where to save undo histories
 set undolevels=1000         " How many undos
@@ -344,6 +335,6 @@ endfunction
 
 call SetArrowKeysAsTextShifters()
 
-nmap <silent> <Tab> %
-vmap <silent> <Tab> %
+"nmap <silent> <Tab> %
+"vmap <silent> <Tab> %
 

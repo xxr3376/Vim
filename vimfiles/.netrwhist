@@ -1,4 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_cnt =4
 let g:netrw_dirhist_1='D:/Temp/tar'
 let g:netrw_dirhist_2='C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Vim 7.3'
+let g:netrw_dirhist_3='C:/Users/xuxinran'
+let g:netrw_dirhist_4='D:/Development/flask/flaskEnv'
