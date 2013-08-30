@@ -57,7 +57,8 @@ set tags=tags;
 set autochdir
 set wildmenu	" 命令行增强模式
 set scrolloff=4	" 上下最小保留行数
-set foldmethod=manual
+
+"set foldmethod=manual
 
 function! s:setFontSize(size)
 	"set guifont="Inconsolata-dz\ for\ Powerline:h".a:size
@@ -338,3 +339,32 @@ call SetArrowKeysAsTextShifters()
 "nmap <silent> <Tab> %
 "vmap <silent> <Tab> %
 
+
+let g:notes_directories = ['E:\notebook']
+
+
+""""""""""""""""""""""""""""""
+" Tag list (ctags)
+""""""""""""""""""""""""""""""
+let Tlist_Show_One_File = 1            "不同时显示多个文件的tag，只显示当前文件的
+let Tlist_Exit_OnlyWindow = 1          "如果taglist窗口是最后一个窗口，则退出vim
+let Tlist_Use_Right_Window = 1         "在右侧窗口中显示taglist窗口
+
+map <silent> tl :TlistToggle<cr>
+
+
+"-- omnicppcomplete setting --
+set completeopt=menu,menuone
+let OmniCpp_MayCompleteDot = 1 " autocomplete with .
+let OmniCpp_MayCompleteArrow = 1 " autocomplete with ->
+let OmniCpp_MayCompleteScope = 1 " autocomplete with ::
+let OmniCpp_SelectFirstItem = 2 " select first item (but don't insert)
+let OmniCpp_NamespaceSearch = 2 " search namespaces in this and included files
+let OmniCpp_ShowPrototypeInAbbr = 1 " show function prototype  in popup window
+let OmniCpp_GlobalScopeSearch=1
+let OmniCpp_DisplayMode=1
+let OmniCpp_DefaultNamespaces=["std"]
+
+set tags+=D:\Vim\vimfiles\bundle\tags\tags
+
+let g:user_emmet_expandabbr_key = '<c-e>'
