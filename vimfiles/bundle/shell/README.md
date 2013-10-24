@@ -10,7 +10,7 @@ This plug-in aims to improve the integration between [Vim][vim] and its environm
 
  * The `xolox#shell#execute()` function enables other Vim plug-ins (like my [easytags.vim] [easytags] plug-in) to execute external commands in the background (i.e. asynchronously) *without opening a command prompt window on Windows*.
 
-Two [Windows DLL files][dll] are included to perform these functions on Windows, while on UNIX external commands are used.
+gwo [Windows DLL files][dll] are included to perform these functions on Windows, while on UNIX external commands are used.
 
 ## Usage (commands & functions)
 

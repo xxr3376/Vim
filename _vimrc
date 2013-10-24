@@ -40,7 +40,7 @@ endif
 
 " ====================================
 " My Part Begin
-" ÉèÖÃ±àÂë
+" è®¾ç½®ç¼–ç 
 set encoding=utf-8
 set termencoding=cp936
 set fileencodings=utf-8,chinese,latin-1
@@ -48,15 +48,15 @@ language messages zh_CN.utf-8
 
 source $VIMRUNTIME/mswin.vim
 behave mswin
-" ĞĞºÅ
+" è¡Œå·
 set number
 colorscheme molokai
 syntax enable
 syntax on
 set tags=tags;
 set autochdir
-set wildmenu	" ÃüÁîĞĞÔöÇ¿Ä£Ê½
-set scrolloff=4	" ÉÏÏÂ×îĞ¡±£ÁôĞĞÊı
+set wildmenu	" å‘½ä»¤è¡Œå¢å¼ºæ¨¡å¼
+set scrolloff=4	" ä¸Šä¸‹æœ€å°ä¿ç•™è¡Œæ•°
 
 "set foldmethod=manual
 
@@ -76,62 +76,61 @@ set softtabstop=4
 set shiftwidth=4
 set noexpandtab
 
-set guioptions-=T " Òş²Ø¹¤¾ßÀ¸
-set guioptions-=m " Òş²Ø²Ëµ¥À¸
-set guioptions-=r " Òş²Ø´¹Ö±¹ö¶¯Ìõ
-set guioptions-=L " Òş²Ø´¹Ö±¹ö¶¯Ìõ
-set guioptions-=b " Òş²ØË®Æ½¹ö¶¯Ìõ
+set guioptions-=T " éšè—å·¥å…·æ 
+set guioptions-=m " éšè—èœå•æ 
+set guioptions-=r " éšè—å‚ç›´æ»šåŠ¨æ¡
+set guioptions-=L " éšè—å‚ç›´æ»šåŠ¨æ¡
+set guioptions-=b " éšè—æ°´å¹³æ»šåŠ¨æ¡
 
-set ignorecase	" ºöÂÔ´óĞ¡Ğ´
+set ignorecase	" å¿½ç•¥å¤§å°å†™
 set incsearch		" do incremental searching
-set smartcase	" µ±ËÑË÷ÄÚÈİ°üº¬´óĞ´Ê±£¬ºöÂÔignorecase
+set smartcase	" å½“æœç´¢å†…å®¹åŒ…å«å¤§å†™æ—¶ï¼Œå¿½ç•¥ignorecase
 
-set display=lastline " ·ÀÖ¹Ò»ĞĞ³¬¹ı´°¿Ú¸ß¶È¿´²»µ½
-"set cursorline	"¸ßÁÁµ±Ç°ĞĞ
+set display=lastline " é˜²æ­¢ä¸€è¡Œè¶…è¿‡çª—å£é«˜åº¦çœ‹ä¸åˆ°
+"set cursorline	"é«˜äº®å½“å‰è¡Œ
 "set cursorcolumn
-set cc=81 " ÉèÖÃ½¨ÒéĞĞÎ²
+set cc=81 " è®¾ç½®å»ºè®®è¡Œå°¾
 
 " hi cursorline guibg=#002244
 " hi cursorcolumn guibg=#222230
 
-"½ûÓÃmode lines (°²È«´ëÊ©£© 
+"ç¦ç”¨mode lines (å®‰å…¨æªæ–½ï¼‰ 
 set nomodeline 
-"×Ô¶¯Ğ´Èë»º³åÇø 
+"è‡ªåŠ¨å†™å…¥ç¼“å†²åŒº 
 set autowrite 
-"½ûÖ¹Éú³ÉÁÙÊ±ÎÄ¼ş
+"ç¦æ­¢ç”Ÿæˆä¸´æ—¶æ–‡ä»¶
 set noswapfile
 set nobackup		" do not keep a backup file, use versions instead
-"ÉèÖÃ¼ôÌù°å¹«ÓÃ
+"è®¾ç½®å‰ªè´´æ¿å…¬ç”¨
 set clipboard=unnamed
-" {{	Ó³ÉäÇø
+" {{	æ˜ å°„åŒº
 	"Set mapleader
 	let mapleader = ","
 	let g:mapleader = ","
 
-	"×¢ÊÍ
+	"æ³¨é‡Š
 	nmap <silent> <F3> ,x
 	vmap <silent> <F3> ,x
 	imap <silent> <F3> ,x
-	" ÉèÖÃF1ÎªESC
+	" è®¾ç½®F1ä¸ºESC
 	nmap <silent> <F1> <ESC>
 	vmap <silent> <F1> <ESC>
 	imap <silent> <F1> <ESC>
-	" ÉèÖÃTabÎª%
-	nmap <silent> <Tab> %
-	vmap <silent> <Tab> %
 
 	nmap ; :
 	" Alt + V
 	nmap <M-v> <C-q>
-	" ´°¸ñÇø·Ö
+	" çª—æ ¼åŒºåˆ†
 	nmap <C-j> <C-W>j
 	nmap <C-k> <C-W>k
 	nmap <C-h> <C-W>h
 	nmap <C-l> <C-W>l
-	" È¥³ıĞĞÎ²^M
+	" å»é™¤è¡Œå°¾^M
 	nmap <leader>M :%s/\r\(\n\)/\1/g<CR>
-	"ÖØÔØÈë_VIMRC
+	"é‡è½½å…¥_VIMRC
 	nmap <leader>V :source $MYVIMRC<CR>
+	"å¯¹æ¯”çª—å£å†…æ–‡æœ¬
+    nmap <leader>D :windo diffthis<CR>
 
 	nmap <leader>v :vsp<CR>
 	nmap <leader>s :sp<CR>
@@ -146,19 +145,20 @@ set clipboard=unnamed
 	nmap dp Pldwbyw
 
 	nmap <silent> <F9> :make <CR>
+	" nohlsearch, from smilekzs
+	nnoremap <ESC><ESC> :noh <CR>
+	" Y is y$, from smilekzs
+	nnoremap Y y$
 " }}
 " =============================
 " plugins
-call pathogen#infect() "²å¼ş¹ÜÀíÆ÷
+call pathogen#infect() "æ’ä»¶ç®¡ç†å™¨
 lang English_United States " set Language
 
-" for powerline
-set laststatus=2
-let g:Powerline_symbols='fancy'
 
 " NERDTree
 " {
-" ÉèÖÃwÎªNerdTreeÇĞ»»
+" è®¾ç½®wä¸ºNerdTreeåˆ‡æ¢
 nmap <silent> <F10> :NERDTreeToggle <CR>
 
 " }
@@ -168,18 +168,20 @@ set undolevels=1000         " How many undos
 set undoreload=10000        " number of lines to save for undo
 
 
-" ×Ô¶¯¿ªÆô ²ÊÉ«À¨ºÅÆ¥Åä
+" è‡ªåŠ¨å¼€å¯ å½©è‰²æ‹¬å·åŒ¹é…
 "let g:rainbow_active = 1
 "let g:rainbow_operators = 1
 "
-"ÊÖ¶¯¿ªÆô ²ÊÉ«À¨ºÅÆ¥Åä
+"æ‰‹åŠ¨å¼€å¯ å½©è‰²æ‹¬å·åŒ¹é…
 nmap <silent> <F12> :RainbowToggle<CR>
 
-" ¶îÍâÎÄ¼şÀàĞÍÉèÖÃ
+" é¢å¤–æ–‡ä»¶ç±»å‹è®¾ç½®
 au BufRead,BufNewFile *.json set filetype=javascript
 au BufRead,BufNewFile *.iced set filetype=coffee
 au BufRead,BufNewFile *.js set autoread
 au FileType python set shiftround expandtab softtabstop=4 tabstop=4 shiftwidth=4 
+au FileType javascript set expandtab softtabstop=2 tabstop=2 shiftwidth=2
+au FileType stylus set expandtab softtabstop=2 tabstop=2 shiftwidth=2 
 
 "about vimwiki
 "{{
@@ -189,21 +191,18 @@ au FileType python set shiftround expandtab softtabstop=4 tabstop=4 shiftwidth=4
 	\ 'template_path': 'E:/vimwiki/template/',
 	\ 'template_default': 'default_template',
 	\ 'template_ext': '.tpl'}]
-	" ¹Ø±ÕÍÕ·å´Ê
+	" å…³é—­é©¼å³°è¯
 	let g:vimwiki_camel_case = 0
-	" ÔÚ¼ÆËã×Ö´®³¤¶ÈÊ±ÓÃÌØ±ğ¿¼ÂÇÖĞÎÄ×Ö·û
+	" åœ¨è®¡ç®—å­—ä¸²é•¿åº¦æ—¶ç”¨ç‰¹åˆ«è€ƒè™‘ä¸­æ–‡å­—ç¬¦
 	let g:vimwiki_CJK_length = 1
-	" ±ê¼ÇÎªÍê³ÉµÄ checklist ÏîÄ¿»áÓĞÌØ±ğµÄÑÕÉ«
+	" æ ‡è®°ä¸ºå®Œæˆçš„ checklist é¡¹ç›®ä¼šæœ‰ç‰¹åˆ«çš„é¢œè‰²
 	let g:vimwiki_hl_cb_checked = 1
-	" ÎÒµÄ vim ÊÇÃ»ÓĞ²Ëµ¥µÄ£¬¼ÓÒ»¸ö vimwiki ²Ëµ¥ÏîÒ²Ã»ÓĞÒâÒå
+	" æˆ‘çš„ vim æ˜¯æ²¡æœ‰èœå•çš„ï¼ŒåŠ ä¸€ä¸ª vimwiki èœå•é¡¹ä¹Ÿæ²¡æœ‰æ„ä¹‰
 	let g:vimwiki_menu = ''
-	au BufRead,BufNewFile *.wiki nmap <F4> :VimwikiAll2HTML<CR>
 	au BufRead,BufNewFile *.wiki nmap <F3> :Vimwiki2HTML<CR>
-	" Ö§³Ötodo listµÄÇĞ»»
-	nmap \ <C-Space>
-	"Ö§³ÖÓï·¨¸ßÁÁ
+	"æ”¯æŒè¯­æ³•é«˜äº®
 	let wiki_nested_syntaxes = {'python': 'python', 'c++': 'cpp'} 
-	"ÉèÖÃ±êÌâÑÕÉ«
+	"è®¾ç½®æ ‡é¢˜é¢œè‰²
 	hi VimwikiHeader1 guifg=#F92672 guibg=#000000
 	hi VimwikiHeader2 guifg=#E6DB74
 	hi VimwikiHeader3 guifg=#AE81FF
@@ -211,9 +210,6 @@ au FileType python set shiftround expandtab softtabstop=4 tabstop=4 shiftwidth=4
 	hi VimwikiHeader5 guifg=#FD971F 
 	hi VimwikiHeader6 guifg=#FFFF00
 
-"}}
-"{{ zencoding
-"	let g:user_zen_leader_key = '<M-s>'
 "}}
 let g:ConqueTerm_PyExe = 'D:\DevTool\Python27\python.exe'
 
@@ -334,37 +330,109 @@ function! SetArrowKeysAsTextShifters()
     inoremap  <s-right> <nop>
 endfunction
 
-call SetArrowKeysAsTextShifters()
-
-"nmap <silent> <Tab> %
-"vmap <silent> <Tab> %
-
-
-let g:notes_directories = ['E:\notebook']
-
+"call SetArrowKeysAsTextShifters()
 
 """"""""""""""""""""""""""""""
 " Tag list (ctags)
 """"""""""""""""""""""""""""""
-let Tlist_Show_One_File = 1            "²»Í¬Ê±ÏÔÊ¾¶à¸öÎÄ¼şµÄtag£¬Ö»ÏÔÊ¾µ±Ç°ÎÄ¼şµÄ
-let Tlist_Exit_OnlyWindow = 1          "Èç¹ûtaglist´°¿ÚÊÇ×îºóÒ»¸ö´°¿Ú£¬ÔòÍË³övim
-let Tlist_Use_Right_Window = 1         "ÔÚÓÒ²à´°¿ÚÖĞÏÔÊ¾taglist´°¿Ú
+let Tlist_Show_One_File = 1            "ä¸åŒæ—¶æ˜¾ç¤ºå¤šä¸ªæ–‡ä»¶çš„tagï¼Œåªæ˜¾ç¤ºå½“å‰æ–‡ä»¶çš„
+let Tlist_Exit_OnlyWindow = 1          "å¦‚æœtaglistçª—å£æ˜¯æœ€åä¸€ä¸ªçª—å£ï¼Œåˆ™é€€å‡ºvim
+let Tlist_Use_Right_Window = 1         "åœ¨å³ä¾§çª—å£ä¸­æ˜¾ç¤ºtaglistçª—å£
 
 map <silent> tl :TlistToggle<cr>
-
-
-"-- omnicppcomplete setting --
-set completeopt=menu,menuone
-let OmniCpp_MayCompleteDot = 1 " autocomplete with .
-let OmniCpp_MayCompleteArrow = 1 " autocomplete with ->
-let OmniCpp_MayCompleteScope = 1 " autocomplete with ::
-let OmniCpp_SelectFirstItem = 2 " select first item (but don't insert)
-let OmniCpp_NamespaceSearch = 2 " search namespaces in this and included files
-let OmniCpp_ShowPrototypeInAbbr = 1 " show function prototype  in popup window
-let OmniCpp_GlobalScopeSearch=1
-let OmniCpp_DisplayMode=1
-let OmniCpp_DefaultNamespaces=["std"]
-
-set tags+=D:\Vim\vimfiles\bundle\tags\tags
-
 let g:user_emmet_expandabbr_key = '<c-e>'
+
+"autocmd FileType html 
+iabbrev <lt>/ </<C-X><C-O>
+
+autocmd BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} map <Leader>p :!start "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" "%:p"<CR>
+
+let g:snips_author = "UGeeker"
+
+" Delete Trailing space in all lines
+nnoremap <silent> <leader><space> :%s/\s\+$/<CR>:noh<CR>
+
+set laststatus=2
+
+let g:lightline = {
+      \ 'colorscheme': 'powerline',
+      \ 'mode_map': { 'c': 'NORMAL' },
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
+      \ },
+      \ 'component_function': {
+      \   'modified': 'MyModified',
+      \   'readonly': 'MyReadonly',
+      \   'fugitive': 'MyFugitive',
+      \   'filename': 'MyFilename',
+      \   'fileformat': 'MyFileformat',
+      \   'filetype': 'MyFiletype',
+      \   'fileencoding': 'MyFileencoding',
+      \   'mode': 'MyMode',
+      \ },
+      \ 'separator': { 'left': 'â®€', 'right': 'â®‚' },
+      \ 'subseparator': { 'left': 'â®', 'right': 'â®ƒ' }
+      \ }
+
+function! MyModified()
+  return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+endfunction
+
+function! MyReadonly()
+  return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? 'â­¤' : ''
+endfunction
+
+function! MyFilename()
+  return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
+        \ (&ft == 'vimfiler' ? vimfiler#get_status_string() : 
+        \  &ft == 'unite' ? unite#get_status_string() : 
+        \  &ft == 'vimshell' ? vimshell#get_status_string() :
+        \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
+        \ ('' != MyModified() ? ' ' . MyModified() : '')
+endfunction
+
+function! MyFugitive()
+  if &ft !~? 'vimfiler\|gundo' && exists("*fugitive#head")
+    let _ = fugitive#head()
+    return strlen(_) ? 'â­  '._ : ''
+  endif
+  return ''
+endfunction
+
+function! MyFileformat()
+  return winwidth(0) > 70 ? &fileformat : ''
+endfunction
+
+function! MyFiletype()
+  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
+endfunction
+
+function! MyFileencoding()
+  return winwidth(0) > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
+endfunction
+
+function! MyMode()
+  return winwidth(0) > 60 ? lightline#mode() : ''
+endfunction
+
+" Show trailing whitepace and spaces before a tab:
+highlight ExtraWhitespace ctermbg=red guibg=#66CCFF
+autocmd Syntax * syn match ExtraWhitespace /\s\+$\| \+\ze\t/ containedin=ALL
+
+
+"set lcs=tab:\|\ ,nbsp:%,trail:-
+"set list
+highlight LeaderTab guifg=#666666
+"" åŒ¹é…è¡Œé¦–tab
+"match LeaderTab /^\t/
+
+" F4 ç”¨ç«–çº¿æ˜¾ç¤ºtabåˆ¶è¡¨ç¬¦
+set listchars=tab:\|\ ,
+map <silent> <F4> :if &list <Bar> 
+                        \ set nolist <Bar> 
+                        \ echo "hidden tab" <Bar> 
+                    \ else <Bar> 
+                        \ set list <Bar> 
+                        \ echo "show tab" <Bar> 
+                    \ endif<CR>
+
