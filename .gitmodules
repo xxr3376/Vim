@@ -22,3 +22,6 @@
 [submodule "vimfiles/bundle/shell"]
 	path = vimfiles/bundle/shell
 	url = git@github.com:xolox/vim-shell.git
+[submodule "vimfiles/bundle/misc"]
+	path = vimfiles/bundle/misc
+	url = git@github.com:xolox/vim-misc.git
