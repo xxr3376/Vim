@@ -19,3 +19,6 @@
 [submodule "vimfiles/bundle/rainbow_parentheses"]
 	path = vimfiles/bundle/rainbow_parentheses
 	url = git@github.com:vim-scripts/Rainbow-Parentheses-Improved-and2.git
+[submodule "vimfiles/bundle/shell"]
+	path = vimfiles/bundle/shell
+	url = git@github.com:xolox/vim-shell.git
