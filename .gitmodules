@@ -4,3 +4,18 @@
 [submodule "vimfiles/bundle/emmet"]
 	path = vimfiles/bundle/emmet
 	url = git@github.com:mattn/emmet-vim.git
+[submodule "vimfiles/bundle/nerdtree"]
+	path = vimfiles/bundle/nerdtree
+	url = git@github.com:scrooloose/nerdtree.git
+[submodule "vimfiles/bundle/snipmate"]
+	path = vimfiles/bundle/snipmate
+	url = git@github.com:msanders/snipmate.vim.git
+[submodule "vimfiles/bundle/fugitive"]
+	path = vimfiles/bundle/fugitive
+	url = git@github.com:tpope/vim-fugitive.git
+[submodule "vimfiles/bundle/pyflakes"]
+	path = vimfiles/bundle/pyflakes
+	url = git@github.com:kevinw/pyflakes-vim.git
+[submodule "vimfiles/bundle/rainbow_parentheses"]
+	path = vimfiles/bundle/rainbow_parentheses
+	url = git@github.com:vim-scripts/Rainbow-Parentheses-Improved-and2.git
