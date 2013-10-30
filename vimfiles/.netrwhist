@@ -1,5 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_cnt =8
 let g:netrw_dirhist_1='D:\Temp'
 let g:netrw_dirhist_2='D:/DevBins/emsg/emsg'
 let g:netrw_dirhist_3='E:/Blog/_posts'
@@ -7,3 +7,4 @@ let g:netrw_dirhist_4='E:/Blog/_site/jekyll'
 let g:netrw_dirhist_5='D:/SDK'
 let g:netrw_dirhist_6='E:/Blog/source/_posts'
 let g:netrw_dirhist_7='D:/PATH'
+let g:netrw_dirhist_8='D:/Development/fpp/grand_pose/app/models'
