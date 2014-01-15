@@ -94,10 +94,10 @@ set cc=81 " 设置建议行尾
 " hi cursorline guibg=#002244
 " hi cursorcolumn guibg=#222230
 
-"禁用mode lines (安全措施） 
-set nomodeline 
-"自动写入缓冲区 
-set autowrite 
+"禁用mode lines (安全措施）
+set nomodeline
+"自动写入缓冲区
+set autowrite
 "禁止生成临时文件
 set noswapfile
 set nobackup		" do not keep a backup file, use versions instead
@@ -175,13 +175,6 @@ set undoreload=10000        " number of lines to save for undo
 "手动开启 彩色括号匹配
 nmap <silent> <F12> :RainbowToggle<CR>
 
-" 额外文件类型设置
-au BufRead,BufNewFile *.json set filetype=javascript
-au BufRead,BufNewFile *.iced set filetype=coffee
-au BufRead,BufNewFile *.js set autoread
-au FileType python set shiftround expandtab softtabstop=4 tabstop=4 shiftwidth=4 
-au FileType javascript set expandtab softtabstop=2 tabstop=2 shiftwidth=2
-au FileType stylus set expandtab softtabstop=2 tabstop=2 shiftwidth=2 
 
 "about vimwiki
 "{{
@@ -201,13 +194,13 @@ au FileType stylus set expandtab softtabstop=2 tabstop=2 shiftwidth=2
 	let g:vimwiki_menu = ''
 	au BufRead,BufNewFile *.wiki nmap <F3> :Vimwiki2HTML<CR>
 	"支持语法高亮
-	let wiki_nested_syntaxes = {'python': 'python', 'c++': 'cpp'} 
+	let wiki_nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
 	"设置标题颜色
 	hi VimwikiHeader1 guifg=#F92672 guibg=#000000
 	hi VimwikiHeader2 guifg=#E6DB74
 	hi VimwikiHeader3 guifg=#AE81FF
-	hi VimwikiHeader4 guifg=#A6E22E               
-	hi VimwikiHeader5 guifg=#FD971F 
+	hi VimwikiHeader4 guifg=#A6E22E
+	hi VimwikiHeader5 guifg=#FD971F
 	hi VimwikiHeader6 guifg=#FFFF00
 
 "}}
@@ -337,7 +330,7 @@ endfunction
 map <silent> tl :TagbarToggle<cr>
 let g:user_emmet_expandabbr_key = '<c-e>'
 
-"autocmd FileType html 
+"autocmd FileType html
 iabbrev <lt>/ </<C-X><C-O>
 
 autocmd BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} map <Leader>p :!start "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" "%:p"<CR>
@@ -379,8 +372,8 @@ endfunction
 
 function! MyFilename()
   return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
-        \ (&ft == 'vimfiler' ? vimfiler#get_status_string() : 
-        \  &ft == 'unite' ? unite#get_status_string() : 
+        \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
+        \  &ft == 'unite' ? unite#get_status_string() :
         \  &ft == 'vimshell' ? vimshell#get_status_string() :
         \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
         \ ('' != MyModified() ? ' ' . MyModified() : '')
@@ -423,11 +416,27 @@ highlight LeaderTab guifg=#666666
 
 " F4 用竖线显示tab制表符
 set listchars=tab:\|\ ,
-map <silent> <F4> :if &list <Bar> 
-                        \ set nolist <Bar> 
-                        \ echo "hidden tab" <Bar> 
-                    \ else <Bar> 
-                        \ set list <Bar> 
-                        \ echo "show tab" <Bar> 
+map <silent> <F4> :if &list <Bar>
+                        \ set nolist <Bar>
+                        \ echo "hidden tab" <Bar>
+                    \ else <Bar>
+                        \ set list <Bar>
+                        \ echo "show tab" <Bar>
                     \ endif<CR>
+
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
+
+" 额外文件类型设置
+au BufRead,BufNewFile *.json set filetype=javascript
+au BufRead,BufNewFile *.iced set filetype=coffee
+au BufRead,BufNewFile *.js set autoread
+au FileType python setlocal shiftround expandtab softtabstop=4 tabstop=4 shiftwidth=4
+au FileType javascript setlocal expandtab softtabstop=2 tabstop=2 shiftwidth=2
+au FileType stylus setlocal expandtab softtabstop=2 tabstop=2 shiftwidth=2
+au FileType coffee setlocal expandtab softtabstop=2 tabstop=2 shiftwidth=2
 
