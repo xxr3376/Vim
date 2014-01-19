@@ -11,15 +11,17 @@ Bundle 'vim-scripts/Rainbow-Parentheses-Improved-and2'
 Bundle 'scrooloose/nerdtree'
 Bundle 'mattn/emmet-vim'
 Bundle 'itchyny/lightline.vim'
-Bundle 'msanders/snipmate.vim'
 Bundle 'tpope/vim-fugitive'
+Bundle 'kien/ctrlp.vim'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'pangloss/vim-javascript.git'
+
+Bundle 'msanders/snipmate.vim'
 Bundle 'kevinw/pyflakes-vim'
 Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-shell'
-Bundle 'majutsushi/tagbar'
-Bundle 'kien/ctrlp.vim'
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'Lokaltog/vim-easymotion'
+Bundle 'majutsushi/tagbar'
 
 filetype plugin indent on
 
