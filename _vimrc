@@ -1,6 +1,28 @@
 " source $VIMRUNTIME/vimrc_example.vim
 " This must be first, because it changes other options as a side effect.
 set nocompatible
+filetype off
+
+source $VIMRUNTIME/mswin.vim
+set rtp+=$VIM/vimfiles/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
+Bundle 'vim-scripts/Rainbow-Parentheses-Improved-and2'
+Bundle 'scrooloose/nerdtree'
+Bundle 'mattn/emmet-vim'
+Bundle 'itchyny/lightline.vim'
+Bundle 'msanders/snipmate.vim'
+Bundle 'tpope/vim-fugitive'
+Bundle 'kevinw/pyflakes-vim'
+Bundle 'xolox/vim-misc'
+Bundle 'xolox/vim-shell'
+Bundle 'majutsushi/tagbar'
+Bundle 'kien/ctrlp.vim'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'Lokaltog/vim-easymotion'
+
+filetype plugin indent on
+
 set backspace=indent,eol,start
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
@@ -50,6 +72,7 @@ source $VIMRUNTIME/mswin.vim
 behave mswin
 " 行号
 set number
+set rnu
 colorscheme molokai
 syntax enable
 syntax on
@@ -439,4 +462,3 @@ au FileType python setlocal shiftround expandtab softtabstop=4 tabstop=4 shiftwi
 au FileType javascript setlocal expandtab softtabstop=2 tabstop=2 shiftwidth=2
 au FileType stylus setlocal expandtab softtabstop=2 tabstop=2 shiftwidth=2
 au FileType coffee setlocal expandtab softtabstop=2 tabstop=2 shiftwidth=2
-
